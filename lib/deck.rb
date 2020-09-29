@@ -22,10 +22,8 @@ class Deck
   def draw(card_num: 1)
     raise ArgumentError.new("Not enough cards to draw: current: #{ @cards.count } vs input #{ card_num.to_i }") if @cards.count < card_num.to_i || card_num.to_i < 1 
     
-    shuffle_card = shuffle
-    @draw = shuffle_card.first(card_num.to_i).map { |card| card.to_s() }
-    shuffle_card.shift(card_num.to_i)
-    @cards = shuffle_card
+    @draw = @cards.first(card_num.to_i).map { |card| card.to_s() }
+    @cards.shift(card_num.to_i)
     return @draw
   end
 
