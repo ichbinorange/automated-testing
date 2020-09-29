@@ -32,6 +32,13 @@ describe Deck do
     end
   end
   
+  describe "Testing shuffle" do
+    it "responds to shuffle" do
+      new_deck = Deck.new
+      expect(new_deck).must_respond_to :shuffle
+    end
+  end  
+
   describe "Testing draw" do
     it "draw returns a readable String value" do
       new_deck = Deck.new
