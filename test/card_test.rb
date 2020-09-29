@@ -26,7 +26,9 @@ describe Card do
     it "to_s returns a readable String value logically for values 2-10" do
       # Test to ensure that to_s works for cards values 2-10
       # for example:  "2 of diamonds"
-      expect(Card.new("2", :diamonds)).must_be_instance_of Card
+      card = Card.new("2", :diamonds)
+      expect(card.to_s).must_equal "2 of diamonds"
+
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
@@ -41,7 +43,10 @@ describe Card do
       #  11: Jack
       #  12: Queen
       #  13: King
-      expect(Card.new("Ace", :diamonds)).must_be_instance_of Card
+      %w(Ace Jack Queen King).each do |face_card|
+        card = Card.new(face_card, :diamonds)
+        expect(card.to_s).must_equal "#{ face_card } of diamonds"
+      end
     end
   end
 
