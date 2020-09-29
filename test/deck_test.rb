@@ -45,7 +45,7 @@ describe Deck do
       expect(new_deck.draw).must_be_instance_of Array
 
       new_deck.draw.each do |card|
-        expect(card).must_be_instance_of String
+        expect(card).must_be_instance_of Card
       end
     end
 
