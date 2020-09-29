@@ -19,7 +19,7 @@ class Deck
 
   def draw(card_num: 1)
     shuffle_card = shuffle
-    @draw = shuffle_card.first(card_num)
+    @draw = shuffle_card.first(card_num).map { |card| card.to_s() }
     shuffle_card.shift(card_num)
     @cards = shuffle_card
     return @draw
