@@ -16,6 +16,19 @@ describe Deck do
   
       expect(new_deck.cards).must_be_instance_of Array
       expect(new_deck.count()).must_equal 52
+
+      expect(Deck.new(deck_num: 2).count).must_equal 104
+      
+      expect(Deck.new(deck_num: "2").count).must_equal 104
+      
+    end
+
+    it "Raises an ArgumentError for invalid decks amount " do
+      expect{Deck.new(deck_num: -1)}.must_raise ArgumentError
+
+      expect{Deck.new(deck_num: nil)}.must_raise ArgumentError
+
+      expect{Deck.new(deck_num: "test")}.must_raise ArgumentError
     end
   end
   
@@ -52,6 +65,9 @@ describe Deck do
 
       new_deck = Deck.new
       expect{new_deck.draw(card_num: nil)}.must_raise ArgumentError
+
+      new_deck = Deck.new
+      expect{new_deck.draw(card_num: "test")}.must_raise ArgumentError
     end
   end
 
